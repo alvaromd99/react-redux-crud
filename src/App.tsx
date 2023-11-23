@@ -6,7 +6,7 @@ import { headers, users } from './constants/constants'
 function App() {
 	return (
 		<div className='h-screen flex items-center justify-center bg-slate-500'>
-			<table className='bg-slate-100 rounded-lg p-5'>
+			<table className='bg-slate-100 rounded-lg text-xl'>
 				<TableHead headers={headers} />
 				<TableBody users={users} />
 			</table>
