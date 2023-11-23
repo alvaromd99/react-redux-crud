@@ -1,3 +1,5 @@
+import DeleteIcon from '../icons/DeleteIcon'
+import EditIcon from '../icons/EditIcon'
 import { User } from '../types/types'
 
 interface TableBodyProps {
@@ -6,12 +8,12 @@ interface TableBodyProps {
 
 export default function TableBody({ users }: TableBodyProps) {
 	return (
-		<tbody className='text-left'>
+		<tbody className='text-left divide-y'>
 			{users.map((user, index) => {
-				const lastRowPadding = users.length - 1 ? 'pb-10' : ''
+				const lastRowPadding = index === users.length - 1 ? 'pb-12' : ''
 				return (
 					<tr key={index}>
-						<td className={`p-6 pl-12 w-14 ${lastRowPadding}`}>{user.id}</td>
+						<td className={`p-6 pl-14 w-14 ${lastRowPadding}`}>{user.id}</td>
 						<td
 							className={`p-6 w-64 flex items-center gap-3 ${lastRowPadding}`}>
 							<img
@@ -22,7 +24,14 @@ export default function TableBody({ users }: TableBodyProps) {
 							<p>{user.name}</p>
 						</td>
 						<td className={`p-6 w-96 ${lastRowPadding}`}>{user.email}</td>
-						<td className={`p-6 pr-12 w-32 ${lastRowPadding}`}>Acciones</td>
+						<td className={`pl-10 pr-14 w-32 ${lastRowPadding}`}>
+							<button type='button' className='mr-1'>
+								<EditIcon />
+							</button>
+							<button type='button'>
+								<DeleteIcon />
+							</button>
+						</td>
 					</tr>
 				)
 			})}
