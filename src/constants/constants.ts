@@ -1,4 +1,4 @@
-export const headers = ['Id', 'Name', 'Email']
+export const headers = ['Id', 'Name', 'Email', 'Acciones']
 
 export const users = [
 	{
