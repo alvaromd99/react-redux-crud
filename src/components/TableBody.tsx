@@ -1,9 +1,9 @@
 import DeleteIcon from '../icons/DeleteIcon'
 import EditIcon from '../icons/EditIcon'
-import { useSelector } from 'react-redux'
+import { useAppSelector } from '../hooks/useStore'
 
 export default function TableBody() {
-	const users = useSelector((state) => state.users)
+	const users = useAppSelector((state) => state.users)
 
 	return (
 		<tbody className='text-left divide-y'>
