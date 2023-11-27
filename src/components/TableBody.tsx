@@ -1,12 +1,10 @@
 import DeleteIcon from '../icons/DeleteIcon'
 import EditIcon from '../icons/EditIcon'
-import { User } from '../types/types'
+import { useSelector } from 'react-redux'
 
-interface TableBodyProps {
-	users: User[]
-}
+export default function TableBody() {
+	const users = useSelector((state) => state.users)
 
-export default function TableBody({ users }: TableBodyProps) {
 	return (
 		<tbody className='text-left divide-y'>
 			{users.map((user, index) => {

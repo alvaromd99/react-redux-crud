@@ -1,8 +1,6 @@
-interface TableHeadProps {
-	headers: string[]
-}
+import { headers } from '../constants/constants'
 
-const TableHead = ({ headers }: TableHeadProps) => {
+const TableHead = () => {
 	return (
 		<thead>
 			<tr className='text-left border-b-2'>
