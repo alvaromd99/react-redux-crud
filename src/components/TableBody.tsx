@@ -1,9 +1,12 @@
 import DeleteIcon from '../icons/DeleteIcon'
 import EditIcon from '../icons/EditIcon'
 import { useAppSelector } from '../hooks/useStore'
+import { useActions } from '../hooks/useActions'
 
 export default function TableBody() {
 	const users = useAppSelector((state) => state.users)
+
+	const { removeUser } = useActions()
 
 	return (
 		<tbody className='text-left divide-y'>
@@ -26,7 +29,7 @@ export default function TableBody() {
 							<button type='button' className='mr-1'>
 								<EditIcon />
 							</button>
-							<button type='button'>
+							<button type='button' onClick={() => removeUser(user.id)}>
 								<DeleteIcon />
 							</button>
 						</td>
