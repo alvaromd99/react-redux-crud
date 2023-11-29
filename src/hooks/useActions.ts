@@ -7,7 +7,7 @@ import { useAppDispatch } from './useStore'
 export const useActions = () => {
 	const dispatch = useAppDispatch()
 
-	const removeUser = (id: number) => {
+	const removeUser = (id: string) => {
 		dispatch(deleteUserById(id))
 	}
 
