@@ -1,6 +1,8 @@
+import { User } from '../types/types'
+
 export const headers = ['Id', 'Name', 'Email', 'Acciones']
 
-export const users = [
+const defaultUsers = [
 	{
 		id: 1,
 		img: 'https://images.unsplash.com/photo-1524250502761-1ac6f2e30d43?q=80&w=1376&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
@@ -20,3 +22,14 @@ export const users = [
 		email: 'charlie@example.com',
 	},
 ]
+
+// Immediately-invoked function (IIFE)
+export const initialState: User[] = (() => {
+	const persistedState = localStorage.getItem('reduxState')
+	if (persistedState) {
+		console.log(persistedState)
+
+		return JSON.parse(persistedState).users
+	}
+	return defaultUsers
+})()

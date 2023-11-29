@@ -1,9 +1,9 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit'
-import { users } from '../../constants/constants'
+import { initialState } from '../../constants/constants'
 
 export const usersSlice = createSlice({
 	name: 'users',
-	initialState: users,
+	initialState: initialState,
 	reducers: {
 		deleteUserById: (state, action: PayloadAction<number>) => {
 			const id = action.payload
