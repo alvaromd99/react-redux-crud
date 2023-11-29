@@ -1,7 +1,7 @@
-import { configureStore } from '@reduxjs/toolkit'
+import { Middleware, configureStore } from '@reduxjs/toolkit'
 import usersReducer from './users/slice'
 
-const persistanceMiddleware = (store) => (next) => (action) => {
+const persistanceMiddleware: Middleware = (store) => (next) => (action) => {
 	next(action)
 	localStorage.setItem('reduxState', JSON.stringify(store.getState()))
 }

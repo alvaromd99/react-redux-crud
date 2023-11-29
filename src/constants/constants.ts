@@ -26,10 +26,9 @@ const defaultUsers = [
 // Immediately-invoked function (IIFE)
 export const initialState: User[] = (() => {
 	const persistedState = localStorage.getItem('reduxState')
-	if (persistedState) {
-		console.log(persistedState)
 
-		return JSON.parse(persistedState).users
-	}
-	return defaultUsers
+	return persistedState ? JSON.parse(persistedState).users : defaultUsers
 })()
+
+const randomPhoto =
+	'https://unsplash.com/es/fotos/hombre-con-chaqueta-negra-y-gorra-marron-YUu9UAcOKZ4'
