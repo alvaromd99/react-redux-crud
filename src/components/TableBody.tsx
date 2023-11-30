@@ -15,17 +15,18 @@ export default function TableBody() {
 				return (
 					<tr key={index}>
 						<td className={`p-6 pl-14 w-14 ${lastRowPadding}`}>{user.id}</td>
-						<td
-							className={`p-6 w-64 flex items-center gap-3 ${lastRowPadding}`}>
-							<img
-								src={user.img}
-								alt='User photo'
-								className='w-10 h-10 rounded-full'
-							/>
-							<p>{user.name}</p>
+						<td className={`p-6 w-64 ${lastRowPadding}`}>
+							<div className='flex items-center gap-3 '>
+								<img
+									src={user.img}
+									alt='User photo'
+									className='w-10 h-10 rounded-full'
+								/>
+								<p>{user.name}</p>
+							</div>
 						</td>
 						<td className={`p-6 w-96 ${lastRowPadding}`}>{user.email}</td>
-						<td className={`pl-10 pr-14 w-32 ${lastRowPadding}`}>
+						<td className={`p-6 pl-10 pr-14 w-32 ${lastRowPadding}`}>
 							<button type='button' className='mr-1'>
 								<EditIcon />
 							</button>
