@@ -22,7 +22,7 @@ export default function TableBody() {
 								<img
 									src={user.img}
 									alt='User photo'
-									className='w-10 h-10 rounded-full'
+									className='w-10 h-10 rounded-full object-cover'
 								/>
 								<p>{user.name}</p>
 							</div>
