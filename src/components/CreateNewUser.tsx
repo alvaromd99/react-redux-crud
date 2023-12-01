@@ -3,22 +3,19 @@ import AddIcon from '../icons/AddIcon'
 import { useActions } from '../hooks/useActions'
 import { CustomForm, ErrorInterface } from '../types/types'
 
+const initialErrorState = {
+	name: null,
+	email: null,
+}
+
 export default function CreateNewUser() {
 	const [isOpen, setIsOpen] = useState(false)
-	const [error, setError] = useState<ErrorInterface>({
-		name: null,
-		email: null,
-	})
+	const [error, setError] = useState<ErrorInterface>(initialErrorState)
 
 	const { addUser } = useActions()
 
 	const handleSubmit = (event: React.FormEvent<CustomForm>) => {
 		event.preventDefault()
-
-		setError({
-			name: null,
-			email: null,
-		})
 
 		const target = event.currentTarget.elements
 
@@ -97,7 +94,10 @@ export default function CreateNewUser() {
 				</form>
 			) : (
 				<button
-					onClick={() => setIsOpen(!isOpen)}
+					onClick={() => {
+						setError(initialErrorState)
+						setIsOpen(!isOpen)
+					}}
 					className='w-14 h-14 bg-slate-100 rounded flex items-center justify-center'>
 					<AddIcon />
 				</button>
