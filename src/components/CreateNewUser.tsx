@@ -12,7 +12,7 @@ const initialErrorState = {
 export default function CreateNewUser() {
 	const [isOpen, setIsOpen] = useState(false)
 	const [error, setError] = useState<ErrorInterface>(initialErrorState)
-	const [showSuccess, setShowSuccess] = useState(false)
+	const [showMessage, setShowMessage] = useState(false)
 
 	const { addUser } = useActions()
 
@@ -48,10 +48,8 @@ export default function CreateNewUser() {
 
 		setIsOpen(!isOpen)
 
-		setShowSuccess(true)
+		setShowMessage(true)
 	}
-
-	console.log(showSuccess)
 
 	return (
 		<>
@@ -103,7 +101,7 @@ export default function CreateNewUser() {
 						className='w-14 h-14 bg-slate-100 rounded-full flex items-center justify-center'>
 						<AddIcon />
 					</button>
-					{showSuccess && <ShowMessage type='ok' />}
+					{showMessage && <ShowMessage type='ok' />}
 				</>
 			)}
 		</>

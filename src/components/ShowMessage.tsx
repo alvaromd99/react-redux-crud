@@ -1,12 +1,12 @@
 interface ShowMessageProps {
-	type: string
+	type: 'ok' | 'notOk'
 }
 
 export const ShowMessage = ({ type }: ShowMessageProps) => {
 	const bgColor = type === 'ok' ? 'bg-green-200' : 'bg-red-200'
 	const textColor = type === 'ok' ? 'text-green-900' : 'text-red-900'
 	const message =
-		type === 'ok' ? 'User CREATED successfully.' : 'User DELETED successfully'
+		type === 'ok' ? 'User created successfully.' : 'User deleted successfully'
 
 	return (
 		<span>
