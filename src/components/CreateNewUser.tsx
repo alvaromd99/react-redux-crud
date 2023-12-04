@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import AddIcon from '../icons/AddIcon'
 import { useActions } from '../hooks/useActions'
 import { CustomForm, ErrorInterface } from '../types/types'
-import { ShowMessage } from './ShowMessage'
+import { toast } from 'sonner'
 
 const initialErrorState = {
 	name: false,
@@ -12,7 +12,6 @@ const initialErrorState = {
 export default function CreateNewUser() {
 	const [isOpen, setIsOpen] = useState(false)
 	const [error, setError] = useState<ErrorInterface>(initialErrorState)
-	const [showMessage, setShowMessage] = useState(false)
 
 	const { addUser } = useActions()
 
@@ -48,7 +47,14 @@ export default function CreateNewUser() {
 
 		setIsOpen(!isOpen)
 
-		setShowMessage(true)
+		toast('User created successfully.', {
+			unstyled: true,
+			classNames: {
+				toast: 'bg-green-200 p-5 rounded-lg',
+				title: 'text-green-800 text-xl',
+			},
+			duration: 1500,
+		})
 	}
 
 	return (
@@ -92,17 +98,14 @@ export default function CreateNewUser() {
 					</form>
 				</>
 			) : (
-				<>
-					<button
-						onClick={() => {
-							setError(initialErrorState)
-							setIsOpen(!isOpen)
-						}}
-						className='w-14 h-14 bg-slate-100 rounded-full flex items-center justify-center'>
-						<AddIcon />
-					</button>
-					{showMessage && <ShowMessage type='ok' />}
-				</>
+				<button
+					onClick={() => {
+						setError(initialErrorState)
+						setIsOpen(!isOpen)
+					}}
+					className='w-14 h-14 bg-slate-100 rounded-full flex items-center justify-center'>
+					<AddIcon />
+				</button>
 			)}
 		</>
 	)

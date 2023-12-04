@@ -1,3 +1,4 @@
+import { Toaster } from 'sonner'
 import './App.css'
 import CreateNewUser from './components/CreateNewUser'
 import TableBody from './components/TableBody'
@@ -15,6 +16,7 @@ function App() {
 				</table>
 				<CreateNewUser />
 			</div>
+			<Toaster richColors />
 		</Provider>
 	)
 }

@@ -2,6 +2,7 @@ import DeleteIcon from '../icons/DeleteIcon'
 import EditIcon from '../icons/EditIcon'
 import { useAppSelector } from '../hooks/useStore'
 import { useActions } from '../hooks/useActions'
+import { toast } from 'sonner'
 
 export default function TableBody() {
 	const users = useAppSelector((state) => state.users)
@@ -34,7 +35,19 @@ export default function TableBody() {
 							<button type='button' className='mr-1'>
 								<EditIcon />
 							</button>
-							<button type='button' onClick={() => removeUser(user.id)}>
+							<button
+								type='button'
+								onClick={() => {
+									removeUser(user.id)
+									toast('User deleted successfully.', {
+										unstyled: true,
+										classNames: {
+											toast: 'bg-red-200 p-5 rounded-lg',
+											title: 'text-red-800 text-xl',
+										},
+										duration: 1500,
+									})
+								}}>
 								<DeleteIcon />
 							</button>
 						</td>
