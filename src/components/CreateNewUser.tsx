@@ -50,7 +50,7 @@ export default function CreateNewUser() {
 		toast('User created successfully.', {
 			unstyled: true,
 			classNames: {
-				toast: 'bg-green-200 p-5 rounded-lg',
+				toast: 'bg-green-200 p-6 rounded-lg',
 				title: 'text-green-800 text-xl',
 			},
 			duration: 1500,

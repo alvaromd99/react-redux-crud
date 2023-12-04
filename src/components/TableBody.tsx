@@ -42,7 +42,7 @@ export default function TableBody() {
 									toast('User deleted successfully.', {
 										unstyled: true,
 										classNames: {
-											toast: 'bg-red-200 p-5 rounded-lg',
+											toast: 'bg-red-200 p-6 rounded-lg',
 											title: 'text-red-800 text-xl',
 										},
 										duration: 1500,
